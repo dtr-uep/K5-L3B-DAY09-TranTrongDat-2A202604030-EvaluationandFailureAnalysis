@@ -1,0 +1,2 @@
+# Eval-set hashes must match between Windows worktrees and Linux CI.
+src/data/eval/eval_set_v*.jsonl text eol=lf
