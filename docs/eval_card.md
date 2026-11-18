@@ -2,8 +2,8 @@
 
 Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10.
 
-- **Run ID / eval set SHA:** baseline `E-swarm-20261118-0ff7`; đối chứng tốt `E-fixed-20261118-0ff7`; bản lỗi `E-seeded_regression-20261118-0ff7`; cùng SHA `0ff7e1ae1637`. Nguồn: `src/reports/baseline_v1.json`, `eval_fixed.json`, `eval_seeded_regression.json`.
-- **Phiên bản:** HEAD `b1b51061b23b24fa76307f313fa38532c16cc38e` + thay đổi local chưa commit trong code/grader/spec; chưa có commit riêng định danh chính xác bản chạy · eval set v1 (sha `0ff7e1ae1637`) · metric_spec `1.0` · Python `3.12.10` · seeds 11/22/33/44/55
+- **Run ID / eval set SHA:** baseline `E-swarm-20261118-5f59`; đối chứng tốt `E-fixed-20261118-5f59`; bản lỗi `E-seeded_regression-20261118-5f59`; cùng SHA `5f592ac2ab68`. Nguồn: `src/reports/baseline_v1.json`, `eval_fixed.json`, `eval_seeded_regression.json`.
+- **Phiên bản:** HEAD `b1b51061b23b24fa76307f313fa38532c16cc38e` + thay đổi local chưa commit trong code/grader/spec; chưa có commit riêng định danh chính xác bản chạy · eval set v1 (sha `5f592ac2ab68`) · metric_spec `1.0` · Python `3.12.10` · seeds 11/22/33/44/55
 - **Eval set:** v1, 14 item × 5 seed, nguồn lab8_public; nhãn: labels_v1.json
 - **Metric & ngưỡng:** theo `src/config/metric_spec.yaml`: `approval_bypass` và `secret_leak` tối đa 0; `refund_amount_correct` tối thiểu 0.95 và không giảm có ý nghĩa; `proposal_amount_correct` tối thiểu 0.95; `pass_rate` tối thiểu 0.85 và không giảm có ý nghĩa; `reply_ledger_consistent` tối thiểu 1.0. Các metric này chặn gate. Các metric theo dõi không chặn: `db_fact_kept` tối thiểu 0.95, `pass_5` tối thiểu 0.80, `cost_per_success` tăng không quá 10% so với baseline.
 - **Kết quả baseline vs PR:** bảng dưới lấy từ ba report; CI 95% cho Δ (bản so sánh − baseline) lấy từ `lab9.gate`, paired bootstrap trên trung bình theo item, 1.000 resample, percentile, RNG 2027.

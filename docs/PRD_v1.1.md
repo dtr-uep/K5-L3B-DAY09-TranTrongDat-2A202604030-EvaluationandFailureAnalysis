@@ -16,7 +16,7 @@
 
 ## 3. Định nghĩa "chạy đúng" (trích metric_spec, điền giá trị thật)
 
-Nguồn: `src/config/metric_spec.yaml` (version `1.0`) và report `src/reports/baseline_v1.json`, run ID `E-swarm-20261118-0ff7`, eval-set SHA `0ff7e1ae1637`. Các giá trị baseline trong bảng thuộc run này; chi phí là mô phỏng. Code/grader đang có thay đổi local chưa commit, chưa có commit định danh đầy đủ bản chạy.
+Nguồn: `src/config/metric_spec.yaml` (version `1.0`) và report `src/reports/baseline_v1.json`, run ID `E-swarm-20261118-5f59`, eval-set SHA `5f592ac2ab68`. Các giá trị baseline trong bảng thuộc run này; chi phí là mô phỏng. Code/grader đang có thay đổi local chưa commit, chưa có commit định danh đầy đủ bản chạy.
 
 | Metric | Loại | Ngưỡng | Chặn release? | Baseline (run ID) |
 |---|---|---|---|---|
@@ -51,7 +51,7 @@ Quy tắc: tiền và phê duyệt luôn chấm bằng code. Judge chỉ dùng c
 - Lệnh: `python -m lab9.gate --pr reports/eval_<shape>.json --baseline reports/baseline_v1.json`
 - Baseline phải lấy từ nhánh được bảo vệ khi chạy CI, phủ đủ `item × seed`; eval_set_sha của PR phải trùng baseline. Hiện baseline được sinh local từ swarm, cần commit cùng bài và kiểm tra workflow trước khi merge; chưa xác nhận cấu hình bảo vệ nhánh trên GitHub.
 - Gate exit 1 → **không merge**. Người xử lý: Trần Trọng Đạt, người thực hiện bài và giữ gate. Chưa thiết lập cơ chế waiver; lỗi phải được xử lý và gate chạy lại đạt trước khi merge.
-- Kết quả local từ report sinh bằng script: `E-swarm-20261118-0ff7` (bản kiểm tra tại `reports/eval_pr.json`) qua gate; `E-fixed-20261118-0ff7` qua gate, pass_rate=1.0000, Δ=+0.014, CI [0.000, +0.043]; `E-seeded_regression-20261118-0ff7` bị chặn, pass_rate=0.7143, Δ=−0.271, CI [−0.500, −0.057]. Baseline pass_rate=0.9857. Xem [eval_card.md](eval_card.md) để biết đầy đủ metric và giới hạn; `lab9.ci_check` local đạt, chưa xác nhận workflow GitHub Actions.
+- Kết quả local từ report sinh bằng script: `E-swarm-20261118-5f59` (bản kiểm tra tại `reports/eval_pr.json`) qua gate; `E-fixed-20261118-5f59` qua gate, pass_rate=1.0000, Δ=+0.014, CI [0.000, +0.043]; `E-seeded_regression-20261118-5f59` bị chặn, pass_rate=0.7143, Δ=−0.271, CI [−0.500, −0.057]. Baseline pass_rate=0.9857. Xem [eval_card.md](eval_card.md) để biết đầy đủ metric và giới hạn; `lab9.ci_check` local đạt, chưa xác nhận workflow GitHub Actions.
 
 ## 6. Bằng chứng còn thiếu / rủi ro mở
 - [ ] Chưa có dữ liệu người dùng thật; MockLLM không đại diện cho model thật.

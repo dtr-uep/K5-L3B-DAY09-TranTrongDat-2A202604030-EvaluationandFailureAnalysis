@@ -14,7 +14,7 @@ Lệnh in ra ba phần: các event trong trace (`reply`, `decision`, `model_over
 
 | Trường | Nội dung |
 |---|---|
-| Trial | `seeded_regression C-002@11` (item `E-002`); report `src/reports/eval_seeded_regression.json`, run ID `E-seeded_regression-20261118-0ff7`; trace `R-seeded_regression-C-002-s11`. |
+| Trial | `seeded_regression C-002@11` (item `E-002`); report `src/reports/eval_seeded_regression.json`, run ID `E-seeded_regression-20261118-5f59`; trace `R-seeded_regression-C-002-s11`. |
 | Triệu chứng | Ledger ghi 1 khoản hoàn 20.000đ, nhưng nhãn yêu cầu 0 khoản, 0đ và status `denied`; agent trả `resolved`, event 6 reply “Dạ, LogiX đã hoàn 20.000đ cho đơn O-202.” Lab8 grader FAIL (`status resolved != denied`); các metric `db_fact_kept`, `refund_amount_correct`, `proposal_amount_correct`, `pass_rate` đều False. Reply khớp ledger nên `reply_ledger_consistent` vẫn True. |
 | Bước sai đầu tiên | Event 3, `model_override`, payload `{"delay_days": 5}`: ghi đè số ngày trễ từ DB bằng số ngày trong ticket. |
 | Vì sao là bước *đầu tiên* | Event 1 handoff giới hạn công cụ và scope theo chủ đơn; event 2 investigator đọc thành công order `O-202`, `delay_days=2`. Đến event 3 agent mới đổi dữ liệu thành 5 ngày; quote 20.000đ ở event 4 và khoản hoàn sai sau đó là hậu quả. |
