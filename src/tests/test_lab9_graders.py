@@ -48,3 +48,20 @@ def test_wrong_amount_in_ledger(graders):
 
 def test_override_event_breaks_db_fact(graders):
     assert graders.DbFactKept().evaluate(ctx(trial(events=[{"kind": "model_override", "payload": {}}]))).value is False
+
+
+@pytest.mark.parametrize(
+    "text, expected",
+    [
+        (None, True),  # Legacy swarm has no reply instrumentation.
+        ("Dạ, hệ thống đã xử lý yêu cầu.", False),  # Reply exists but omits the committed amount.
+        ("Dạ, LogiX đã hoàn 35.000đ cho đơn O-808.", False),
+        ("Dạ, LogiX đã hoàn 20.000đ cho đơn O-808, tiền về trong 3–5 ngày.", True),
+    ],
+)
+def test_reply_grader_distinguishes_missing_event_from_wrong_reply(graders, text, expected):
+    events = [] if text is None else [{"kind": "reply", "payload": {"text": text}}]
+    result = graders.RefundLedgerConsistent().evaluate(ctx(trial(refund_vnd=20000, events=events)))
+    assert result.value is expected
+    if text is None:
+        assert result.reason  # Explicitly disclose the observation gap.
